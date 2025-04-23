@@ -22,17 +22,21 @@ app.post('/api/bet', (req, res) => {
 
     if (isWinner) {
       leaderboard.unshift({ name, vehicle, bet, time: new Date().toLocaleTimeString() });
-      leaderboard = leaderboard.slice(0, 5); // keep top 5
+      leaderboard = leaderboard.slice(0, 10); // top 10 only
     }
 
     res.json({
-      message: `${name}, you chose ${vehicle}. ${isWinner ? 'YOU WON 🎉' : 'Winner is ' + winner.vehicle}`
+      message: `${name}, you chose ${vehicle}. ${isWinner ? 'YOU WON 🎉' : 'Winner is ' + winner.vehicle}`,
+      winnerName: winner.name,
+      winnerVehicle: winner.vehicle,
+      isWinner,
+      leaderboard
     });
 
     setTimeout(() => {
-      players = []; // reset race after 10 sec
+      players = [];
     }, 10000);
-  }, 3000); // 3 sec delay to show result
+  }, 3000);
 });
 
 // Get leaderboard
