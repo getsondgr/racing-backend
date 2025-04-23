@@ -6,7 +6,13 @@ const port = process.env.PORT || 3000;
 let players = [];
 let leaderboard = [];
 
-app.use(cors());
+// ✅ Allow only your frontend domain
+app.use(cors({
+  origin: 'https://gtogroups.in',
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Place a bet
