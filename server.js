@@ -8,7 +8,7 @@ let leaderboard = [];
 
 // ✅ Allow only your frontend domain
 app.use(cors({
-  origin: 'https://gtogroups.in',
+  origin: 'https://gtogroups.in/game.html',
   methods: ['GET', 'POST'],
   credentials: true
 }));
