@@ -26,6 +26,6 @@ app.post('/api/bet', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`✅ Racing Game backend LIVE at https://racing-backend.onrender.com`);
 });
 
